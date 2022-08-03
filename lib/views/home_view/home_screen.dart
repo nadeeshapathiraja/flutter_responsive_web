@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web/views/widgets/navbar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -10,23 +11,25 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            Color(0xFFF8FBFF),
+            Color(0xFFFCFDFD),
+          ],
+        ),
       ),
-      body: Row(children: [
-        Expanded(
-          child: Container(
-            color: Colors.red,
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: SingleChildScrollView(
+          child: Column(
+            children: const [
+              NavBar(),
+            ],
           ),
         ),
-        Expanded(
-          flex: 5,
-          child: Container(
-            color: Colors.blue,
-          ),
-        ),
-      ]),
+      ),
     );
   }
 }
